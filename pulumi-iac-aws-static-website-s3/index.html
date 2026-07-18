@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serge Lawson | Software Engineer</title>
+  <meta name="description" content="Software engineer building full-stack products with React, React Native, Node.js, Go, PostgreSQL and AWS." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            base: '#0F172A',
+            surface: '#1E293B',
+            'surface-2': '#272F42',
+            line: '#334155',
+            accent: '#22C55E',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+    ::selection { background: rgba(34, 197, 94, 0.3); }
+  </style>
+</head>
+<body class="bg-base text-slate-100 font-sans antialiased overflow-x-hidden">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-base focus:font-semibold focus:text-slate-900">Skip to content</a>
+
+  <!-- Nav -->
+  <header class="fixed top-0 inset-x-0 z-40 border-b border-line/50 bg-base/70 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Main">
+      <a href="#" class="font-mono text-sm font-medium text-slate-300 hover:text-white transition-colors">
+        <span class="text-accent">~/</span>serge-lawson
+      </a>
+      <ul class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+        <li><a href="#stack" class="hover:text-white transition-colors">Stack</a></li>
+        <li><a href="#projects" class="hover:text-white transition-colors">Projects</a></li>
+        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+        <li>
+          <a href="#contact" class="rounded-lg bg-accent px-4 py-2 font-semibold text-slate-900 hover:bg-green-400 transition-colors">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <button id="menu-btn" class="md:hidden p-2 -mr-2 text-slate-300 hover:text-white cursor-pointer" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M6 18 18 6M6 6l12 12"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-line/50 bg-base/95 backdrop-blur-xl">
+      <ul class="flex flex-col px-6 py-4 gap-1 text-slate-300">
+        <li><a href="#stack" class="block rounded-lg px-3 py-3 hover:bg-surface transition-colors">Stack</a></li>
+        <li><a href="#projects" class="block rounded-lg px-3 py-3 hover:bg-surface transition-colors">Projects</a></li>
+        <li><a href="#about" class="block rounded-lg px-3 py-3 hover:bg-surface transition-colors">About</a></li>
+        <li><a href="#contact" class="block rounded-lg px-3 py-3 text-accent font-semibold hover:bg-surface transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="mx-auto flex min-h-dvh max-w-6xl flex-col justify-center px-6 pt-24 pb-16">
+      <p class="reveal font-mono text-sm text-accent mb-4">Software Engineer</p>
+      <h1 class="reveal text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white">
+        Serge Lawson
+      </h1>
+      <p class="reveal mt-6 max-w-2xl text-lg leading-relaxed text-slate-400">
+        I build full-stack products: web and mobile frontends with
+        <span class="text-slate-200">React</span> and <span class="text-slate-200">React Native</span>,
+        backend services in <span class="text-slate-200">Node.js</span> and
+        <span class="text-slate-200">Go</span>, deployed on <span class="text-slate-200">AWS</span>.
+      </p>
+      <div class="reveal mt-10 flex flex-wrap items-center gap-4">
+        <a href="#projects" class="rounded-lg bg-accent px-6 py-3 font-semibold text-slate-900 hover:bg-green-400 transition-colors">
+          View my work
+        </a>
+        <a href="#contact" class="rounded-lg border border-line px-6 py-3 font-semibold text-slate-200 hover:border-accent hover:text-accent transition-colors">
+          Get in touch
+        </a>
+      </div>
+      <div class="reveal mt-16 max-w-xl rounded-xl border border-line/60 bg-surface/50 backdrop-blur-sm shadow-2xl shadow-black/30">
+        <div class="flex items-center gap-2 border-b border-line/60 px-4 py-3">
+          <span class="h-3 w-3 rounded-full bg-red-500/70"></span>
+          <span class="h-3 w-3 rounded-full bg-yellow-500/70"></span>
+          <span class="h-3 w-3 rounded-full bg-green-500/70"></span>
+          <span class="ml-2 font-mono text-xs text-slate-500">profile.go</span>
+        </div>
+        <pre class="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-indigo-400">type</span> <span class="text-cyan-300">Engineer</span> <span class="text-indigo-400">struct</span> {
+  Frontend []<span class="text-indigo-400">string</span> <span class="text-slate-500">// react, react-router, react-native</span>
+  Backend  []<span class="text-indigo-400">string</span> <span class="text-slate-500">// node.js, golang</span>
+  Data     <span class="text-indigo-400">string</span>   <span class="text-slate-500">// postgresql</span>
+  Cloud    <span class="text-indigo-400">string</span>   <span class="text-slate-500">// aws</span>
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- Stack -->
+    <section id="stack" class="mx-auto max-w-6xl px-6 py-24 scroll-mt-20">
+      <div class="reveal flex items-baseline gap-4 mb-12">
+        <h2 class="text-3xl font-bold text-white">Tech stack</h2>
+        <span class="hidden sm:block h-px flex-1 bg-line/60"></span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="reveal group rounded-xl border border-line/60 bg-surface/50 p-6 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:-translate-y-1">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(120 12 12)"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">React &amp; React Router</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Component-driven SPAs with clean routing architecture, data loading, and state management that scales with the product.</p>
+        </div>
+
+        <div class="reveal group rounded-xl border border-line/60 bg-surface/50 p-6 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:-translate-y-1">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-sky-500/10 text-sky-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path stroke-linecap="round" d="M10.5 18.5h3"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">React Native</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Cross-platform iOS and Android apps with smooth animations, offline support, and logic shared with the web.</p>
+        </div>
+
+        <div class="reveal group rounded-xl border border-line/60 bg-surface/50 p-6 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:-translate-y-1">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-green-500/10 text-green-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7L12 2.5Z"/><path stroke-linecap="round" d="M12 21.5V12M12 12 3.5 7M12 12l8.5-5"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Node.js</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">REST and GraphQL APIs, real-time systems, and background workers, typed with TypeScript and built for observability.</p>
+        </div>
+
+        <div class="reveal group rounded-xl border border-line/60 bg-surface/50 p-6 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:-translate-y-1">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-teal-500/10 text-teal-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m6.75 7.5 4.5 4.5-4.5 4.5M12.75 16.5h4.5"/><rect x="2.5" y="3.5" width="19" height="17" rx="2.5"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Golang</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">High-throughput services, CLIs, and concurrent pipelines where performance and a small memory footprint matter.</p>
+        </div>
+
+        <div class="reveal group rounded-xl border border-line/60 bg-surface/50 p-6 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:-translate-y-1">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.66 3.58 3 8 3s8-1.34 8-3v-13"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">PostgreSQL</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Schema design, query optimization, and migrations, from transactional workloads to analytics.</p>
+        </div>
+
+        <div class="reveal group rounded-xl border border-line/60 bg-surface/50 p-6 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:-translate-y-1">
+          <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-orange-500/10 text-orange-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">AWS</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Lambda, ECS, RDS, S3, and CloudFront. Infrastructure as code with CI/CD pipelines that deploy on every merge.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mx-auto max-w-6xl px-6 py-24 scroll-mt-20">
+      <div class="reveal flex items-baseline gap-4 mb-12">
+        <h2 class="text-3xl font-bold text-white">Selected projects</h2>
+        <span class="hidden sm:block h-px flex-1 bg-line/60"></span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <article class="reveal group flex flex-col overflow-hidden rounded-xl border border-line/60 bg-surface/50 transition-all duration-300 hover:border-accent/50 hover:-translate-y-1">
+          <div class="relative h-44 border-b border-line/60 bg-surface-2 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-300/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-semibold text-white group-hover:text-accent transition-colors">FleetPulse Analytics</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">Real-time logistics dashboard streaming vehicle telemetry over WebSockets, with historical rollups queried from Postgres.</p>
+            <ul class="mt-4 flex flex-wrap gap-2 font-mono text-xs text-slate-400">
+              <li class="rounded-full border border-line/60 px-2.5 py-1">React</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">Go</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">PostgreSQL</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">AWS ECS</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="reveal group flex flex-col overflow-hidden rounded-xl border border-line/60 bg-surface/50 transition-all duration-300 hover:border-accent/50 hover:-translate-y-1">
+          <div class="relative h-44 border-b border-line/60 bg-surface-2 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-300/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-semibold text-white group-hover:text-accent transition-colors">Cartel Commerce</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">Headless e-commerce storefront with cart, checkout, and order tracking. Server-driven routing with nested layouts and loaders.</p>
+            <ul class="mt-4 flex flex-wrap gap-2 font-mono text-xs text-slate-400">
+              <li class="rounded-full border border-line/60 px-2.5 py-1">React Router</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">Node.js</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">Stripe</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">AWS Lambda</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="reveal group flex flex-col overflow-hidden rounded-xl border border-line/60 bg-surface/50 transition-all duration-300 hover:border-accent/50 hover:-translate-y-1">
+          <div class="relative h-44 border-b border-line/60 bg-surface-2 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-sky-300/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/><rect x="6" y="2.5" width="12" height="19" rx="2.5" fill="none"/></svg>
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="font-semibold text-white group-hover:text-accent transition-colors">Habitat Mobile</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-400">Habit-tracking app for iOS and Android with offline-first sync, push notifications, and streak analytics.</p>
+            <ul class="mt-4 flex flex-wrap gap-2 font-mono text-xs text-slate-400">
+              <li class="rounded-full border border-line/60 px-2.5 py-1">React Native</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">Node.js</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">PostgreSQL</li>
+              <li class="rounded-full border border-line/60 px-2.5 py-1">AWS RDS</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mx-auto max-w-6xl px-6 py-24 scroll-mt-20">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div class="lg:col-span-3">
+          <div class="reveal flex items-baseline gap-4 mb-8">
+            <h2 class="text-3xl font-bold text-white">About me</h2>
+            <span class="hidden sm:block h-px flex-1 bg-line/60"></span>
+          </div>
+          <div class="reveal space-y-4 text-slate-400 leading-relaxed">
+            <p>I'm a software engineer who owns features from the database schema to the UI. I like working at the seam between frontend and backend, designing APIs that keep interfaces simple.</p>
+            <p>On the frontend I use React on the web and React Native on mobile, sharing types and logic across platforms. On the backend I use Node.js when iteration speed matters and Go when throughput does, with PostgreSQL as the source of truth and AWS for infrastructure.</p>
+            <p>I care about the unglamorous parts: migrations that roll back cleanly, alerts that fire before users notice, and CI pipelines fast enough that nobody skips them.</p>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="reveal rounded-xl border border-line/60 bg-surface/50 p-6">
+            <h3 class="font-mono text-sm text-accent mb-4">At a glance</h3>
+            <dl class="space-y-5">
+              <div class="flex items-baseline justify-between gap-4">
+                <dt class="text-sm text-slate-400">Years of engineering</dt>
+                <dd class="text-2xl font-bold text-white tabular-nums">6+</dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4">
+                <dt class="text-sm text-slate-400">Products shipped</dt>
+                <dd class="text-2xl font-bold text-white tabular-nums">14</dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4">
+                <dt class="text-sm text-slate-400">Platforms</dt>
+                <dd class="text-sm font-mono text-slate-200">web · ios · android</dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4">
+                <dt class="text-sm text-slate-400">Currently</dt>
+                <dd class="text-sm text-slate-200">Open to opportunities</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mx-auto max-w-6xl px-6 py-24 scroll-mt-20">
+      <div class="reveal mx-auto max-w-2xl rounded-2xl border border-line/60 bg-surface/50 p-10 text-center backdrop-blur-sm">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Get in touch</h2>
+        <p class="mt-4 text-slate-400 leading-relaxed">I'm open to new opportunities and interesting projects. The fastest way to reach me is email.</p>
+        <a href="mailto:iamsergelawson@gmail.com" class="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 font-semibold text-slate-900 hover:bg-green-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+          Say hello
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-line/50 px-6 py-8">
+    <div class="mx-auto flex max-w-6xl flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-mono text-xs text-slate-500">© 2026 Serge Lawson</p>
+      <ul class="flex items-center gap-5">
+        <li>
+          <a href="https://github.com" class="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.26 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com" class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:iamsergelawson@gmail.com" class="text-slate-400 hover:text-white transition-colors" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    function setMenu(open) {
+      mobileMenu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      reveals.forEach((el) => el.classList.add('visible'));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = `${Math.min(i * 60, 240)}ms`;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach((el) => observer.observe(el));
+    }
+  </script>
+</body>
+</html>
