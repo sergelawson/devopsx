@@ -1,48 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
+import { AwsS3Website } from "./website";
 
-// Create an AWS resource (S3 Bucket)
-const bucket = new aws.s3.Bucket("my-bucket");
-
-const website = new aws.s3.BucketWebsiteConfiguration("website", {
-  bucket: bucket.id,
-  indexDocument: { suffix: "index.html" },
+// Deploy static website to S3 and use index.html as the default page.
+const website = new AwsS3Website("my-website", {
+  files: ["index.html"],
 });
 
-const ownershipControls = new aws.s3.BucketOwnershipControls(
-  "ownership-controls",
-  {
-    bucket: bucket.id,
-    rule: {
-      objectOwnership: "ObjectWriter",
-    },
-  },
-);
-
-// Enable public access to the website:
-const publicAccessBlock = new aws.s3.BucketPublicAccessBlock(
-  "public-access-block",
-  {
-    bucket: bucket.id,
-    blockPublicAcls: false,
-  },
-);
-
-const bucketObject = new aws.s3.BucketObject(
-  "index.html",
-  {
-    bucket: bucket.id,
-    source: new pulumi.asset.FileAsset("index.html"),
-    contentType: "text/html",
-    acl: "public-read",
-  },
-  { dependsOn: [ownershipControls, publicAccessBlock] },
-);
-
-// Create a CloudFront distribution for the S3 bucket
-
-// Export the name of the bucket
-export const bucketName = bucket.id;
-// Export the bucket's autoassigned URL:
-export const url = pulumi.interpolate`http://${website.websiteEndpoint}`;
+export const url = website.url;
