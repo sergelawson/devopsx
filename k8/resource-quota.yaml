@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota-limit-demo
+spec:
+  hard:
+    requests.cpu: "50m"
+    requests.memory: "100Mi"
+    limits.cpu: "100m"
+    limits.memory: "200Mi"
+

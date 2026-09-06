@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-site
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: static-site
+  template:
+    metadata:
+      labels:
+        app: static-site
+    spec:
+      containers:
+        - name: static-site
+          image: iamserge7/static
+          volumeMounts:
+            - name: skills
+              mountPath: /cs
+            - name: static-pv-storage
+              mountPath: /data
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "20m"
+              memory: "32Mi"
+            limits:
+              cpu: "50m"
+              memory: "128Mi"
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: skills
+          configMap:
+            name: my-skills
+        - name: static-pv-storage
+          persistentVolumeClaim:
+            claimName: static-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-site
+spec:
+  type: NodePort
+  selector:
+    app: static-site
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
