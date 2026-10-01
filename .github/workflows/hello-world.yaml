@@ -5,6 +5,7 @@ on:
 jobs:
   Say-Hello-World:
     runs-on: ubuntu-latest
+    needs: Python-Job
     steps:
       - name: Say Hello
         run: echo "Hello World"
