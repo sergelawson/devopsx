@@ -14,5 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Python Version
-        run: print("Python version:", version())
+        run: |
+          import sys
+          print("Python version:", sys.version)
         shell: python
